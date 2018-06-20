@@ -1,4 +1,4 @@
-# django_rest_jwt_auth
+# Django REST JWT based Authentication
 Custom authentication based on JWT applied on the top of the quickstart found on Django REST Framework - http://www.django-rest-framework.org/tutorial/quickstart/
 
 # Running the server
