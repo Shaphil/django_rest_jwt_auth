@@ -38,6 +38,9 @@ class JWTAuthentication(BaseAuthentication):
         user = User.objects.get(pk=user_id)
         test_token = Utilities().encode_user(user)
 
+        print('__LOG__', token)
+        print('__LOG__', test_token)
+
         if test_token != token:
             raise AuthenticationFailed('Token mismatch, authentication failed')
 
@@ -52,9 +55,9 @@ class Utilities:
         return token
 
     def encode_user(self, user):
-        data = {'id': user['id'], 'email': user['email']}
+        data = {'id': user.id, 'email': user.email}
 
-        return jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM).decode('utf-8')
+        return jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)
 
     def get_user_from_request(self, request):
         username = request.data['username']
