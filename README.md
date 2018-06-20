@@ -1,6 +1,14 @@
 # Django REST JWT based Authentication
 Custom authentication based on JWT applied on the top of the quickstart found on Django REST Framework - http://www.django-rest-framework.org/tutorial/quickstart/
 
+The basic idea is to 
+* Get token from a special endpoint
+* Intercept each request that needs auth (gracefully handled by the Django REST Framework)
+* If there is a token, validate it
+    * if token is valid allow access
+    * else show error message
+* else show error message
+
 # Running the server
 * You may want to work with a virtualenv.
 * Install dependencies: `pip install -r requirements.txt`
